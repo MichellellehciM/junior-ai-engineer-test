@@ -19,4 +19,11 @@
     - 建立.env
     - 建立quick_replies、clean_chat_history、clean_list等functions
     - Python API測試 `python -m unittest tests/test_quick_replies.py`
-    - 待完成 test 50次
+    - 待完成 設計test 50次
+## 2025-02-07 完成return process
+- 安裝和設定mysql(之前專案是用Postgres,想練習用看看其他的sql)
+    - 建立新database: RefundProcess
+    - 建立table: refunds
+    - 建立columns: name, phone, order_number, product_name, reason, created_at
+- 安裝 Python 的 MySQL 連接器庫 `pip install mysql-connector-python`
+- 安裝 MySQL extension 到 VSCode + 完成 connect to server 設定
