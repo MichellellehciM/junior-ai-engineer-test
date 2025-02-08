@@ -28,7 +28,7 @@
 2. 建立虛擬環境:
     ```bash
     python -m venv .venv
-    source .venv\Scripts\activate
+    .venv\Scripts\activate
     ```
 3. 安裝依賴：
     `pip install -r requirements.txt`
