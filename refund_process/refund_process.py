@@ -35,10 +35,14 @@ def insert_return_request(name, phone, order_number, product_name, reason):
         INSERT INTO returns (name, phone, order_number, product_name, reason)
         VALUES (%s, %s, %s, %s, %s)
     """
+    # 執行 SQL 語句
     cursor.execute(query, (name, phone, order_number, product_name, reason))
+    # 提交事務
     connection.commit()
     print(f"感謝您的資訊！{name}，您的退貨請求已提交，我們的客服團隊會在1-2個工作日內與您聯繫。")
+    # 關閉連線
     cursor.close()
+    # 關閉資料庫連線
     connection.close()
    
 
@@ -48,6 +52,7 @@ def main():
     """執行退貨流程"""
     name, phone, order_number, product_name, reason = collect_return_info()
     
+    # 確認資訊
     print(f"""
     請確認您的退貨資訊：
     姓名: {name}
@@ -64,5 +69,6 @@ def main():
         print("退貨申請取消，請重新提供退貨資訊。")
         main()
 
+# 只有當此程式被直接執行時，main() 才會執行。
 if __name__ == "__main__":
     main()
