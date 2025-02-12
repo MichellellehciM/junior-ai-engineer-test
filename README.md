@@ -35,14 +35,14 @@
 
 ## 資料夾結構
 .
-├── api/               # 商品描述優化的 API 程式碼
-├── quick_replies/     # Quick Replies 的 Prompt 和函式程式碼
-├── refund_process/    # 退貨流程設計
-├── tests/             # 測試代碼
+├── quick_replies/       # Quick Replies 的 Prompt 和函式程式碼        
+├── refine_description/  # 商品描述優化的 API 程式碼   
+├── refund_process/      # 退貨流程設計
+├── tests/               # 測試代碼
 ├── .gitignore         
-├── my_record.md       # 我的開發記錄
+├── my_record.md         # 我的開發記錄
 ├── README.md          
 ├── requirements.txt   
-└── .venv/            
+└── .venv/               # 虛擬環境
 
 -----
