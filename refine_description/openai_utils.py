@@ -13,7 +13,7 @@ def call_openai_with_retry(prompt, retries=3):
                 temperature=0.0    
             )
             return response.choices[0].message.content.strip()
-        except openai.error.OpenAIError as e:
+        except openai.OpenAIError as e:
             if i < retries - 1:
                 time.sleep(2)  
                 continue
