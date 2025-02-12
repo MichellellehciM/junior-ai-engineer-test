@@ -17,9 +17,9 @@
 - 閱讀OpenAI相關文件 (https://github.com/openai/openai-python/blob/main/README.md)
     - 新增OpenAI secret key (https://platform.openai.com/api-keys)
     - 建立.env
-    - 建立quick_replies、clean_chat_history、clean_list等functions
+    - 建立quick_replies, clean_chat_history, clean_list等functions
     - Python API測試 `python -m unittest tests/test_quick_replies.py`
-    - () 待完成 設計test 50次
+    - 設計test 50次 2025-02-12完成
 ## 2025-02-07 完成資料庫設置
 - 安裝和設定mysql(之前專案是用Postgres,想練習用看看其他的sql) 儲存客戶資訊
     - 建立新database: RefundProcess
@@ -31,5 +31,18 @@
 - 新增 refund_process.py （定義 prompt 和運行函式）
 - AI機器人return process測試: 
     - 輸入指令`python refund_process/refund_process.py` 依序輸入退貨資料
-- 新增 test_refund_process.py （測試函式是否運作正常）
+- 新增 test_refund_process.py （測試：插入缺少欄位的退貨請求，應該引發錯誤）
     - 輸入指令`python -m unittest tests/test_refund_process.py`
+
+## 2025-02-11 ~ 2025-02-12 完成API development  , refine description
+- 新增 refine_description.py 
+    - 建立 FastAPI APP 
+    - 定義請求/回應模型
+    - 定義路由 /summarized-description
+- 安裝 fastapi 以及 uvicorn `pip install fastapi uvicorn`
+    - 啟動 FastAPI 應用，並讓 uvicorn 伺服器運行 API 服務: `python -m uvicorn refine_description:app --reload`
+- 測試 (FastAPI向OpenAI取得精簡化的商品描述)
+    - 輸入指令`python -m unittest tests/test_refine_description.py`
+- 新增捕捉錯誤程式碼
+    - 1️⃣ 捕捉 OpenAI API 相關錯誤（openai.error.OpenAIError）
+    - 2️⃣ 捕捉所有其他未知錯誤（Exception）
