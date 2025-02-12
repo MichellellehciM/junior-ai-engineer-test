@@ -19,8 +19,7 @@
     - 建立.env
     - 建立quick_replies, clean_chat_history, clean_list等functions
     - Python API測試 `python -m unittest tests/test_quick_replies.py`
-    - 設計test 50次
-    - () 待完成 設計test 50次
+    - 設計test 50次 2025-02-12完成
 ## 2025-02-07 完成資料庫設置
 - 安裝和設定mysql(之前專案是用Postgres,想練習用看看其他的sql) 儲存客戶資訊
     - 建立新database: RefundProcess
