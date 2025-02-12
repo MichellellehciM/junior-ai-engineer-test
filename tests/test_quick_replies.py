@@ -1,8 +1,7 @@
+# 測試1. 髒資料清理後生成的對話紀錄 + 生成五個 Quick Replies 
 from quick_replies.quick_replies import generate_quick_replies, clean_chat_history, clean_list
 
-
-# test_data 1
-# 1. 對話紀錄設計（包含髒數據）
+# 1. 對話紀錄（包含隨機的髒數據）
 chat_history = [
     {"role": "system", "content": "歡迎來到 JTCG Shop，這裡是系統訊息"},  # 無效的系統訊息
     {"role": "assistant", "content": [{"type": "text", "text": "您好！歡迎來到 JTCG Shop，有什麼我可以為您服務的？"}]},           
@@ -17,45 +16,43 @@ chat_history = [
     {"role": "assistant", "content": "這些都是近期的熱賣商品：素色T桖、Macbook Pro、日本A5和牛-3。"}
 ]
 
-# 2. 髒資料清理
+# 2. 清理對話紀錄
 cleaned_data = clean_chat_history(chat_history)
-print(cleaned_data)
+print("清理後的對話紀錄:")
+for msg in cleaned_data:
+    print(msg)
 
-# 3. 定義 FAQ 列表 & product 列表
+# 3. FAQ 和產品清單
 faq_list = [
-    "111", 
     "如何成為會員",
     "如何取得優惠券",
     "如何退貨",
     "如何追蹤訂單狀態"
 ]
+
 product_list = [
-    "ipad 0 元",                           
     "Macbook Pro",                         
     "日本A5和牛-3",                        
     "3合1電眼睫毛膏",                      
-    "【Inner hows】高奢香氛沐浴油250109",                                             
+    "【Inner hows】高奢香氛沐浴油",                                             
     "休閒百搭帆布包",                      
-    "全新盒裝四色懶人實用珠光霧面閃鑽亮粉彩妝眼影",                                   
+    "四色懶人實用珠光霧面閃鑽亮粉彩妝眼影",                                   
     "素色T桖",                             
     "素色 V 領小可愛",                     
     "高效保濕"  
 ]
 
-# 4. FAQ 和 product list 清理 
+# 4. 清理 FAQ 和產品清單
 cleaned_faq_list = clean_list(faq_list)
 cleaned_product_list = clean_list(product_list)
 
 # 5. 生成 Quick Replies
 quick_replies = generate_quick_replies(cleaned_data, cleaned_faq_list, cleaned_product_list)
-print(quick_replies)
 
+# 6. 確保輸出 5 條 Quick Replies
+if len(quick_replies) < 5:
+    print("⚠️ AI 回應數量少於 5 條，請檢查 `generate_quick_replies()` 是否有錯誤！")
 
-
-
-
-
-
-
-# 測試OpenAI API
-# print(f"API Key: {os.environ.get('OPENAI_API_KEY')}")
+print("\n✅ 生成的 Quick Replies:")
+for reply in quick_replies:
+    print(reply)
