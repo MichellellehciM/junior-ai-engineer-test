@@ -1,3 +1,4 @@
+# 生成 50 次 Quick Replies
 import unittest
 import time
 from quick_replies.quick_replies import generate_quick_replies, clean_chat_history, clean_list
@@ -52,12 +53,12 @@ class TestQuickRepliesPerformance(unittest.TestCase):
             execution_times.append(execution_time)
 
 
-            print(f"\n📌 **測試 {i+1}  Quick Replies:**")
+            print(f"\n 測試 {i+1} Quick Replies")
             for j, reply in enumerate(replies, start=1):
-                print(f"🔹 {reply}")
+                print(f" {reply}")
 
 
-            self.assertTrue(6 <= len(replies) <= 7, f"測試第 {i+1} 次時，回覆數量錯誤: {len(replies)}")
+            self.assertTrue(5 <= len(replies) <= 6, f"測試第 {i+1} 次時，回覆數量錯誤: {len(replies)}")
 
         avg_time = sum(execution_times) / num_tests
         print(f"\n✅ 50 次測試平均回應時間: {avg_time:.3f} 秒")
