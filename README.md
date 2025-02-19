@@ -34,15 +34,34 @@
     `pip install -r requirements.txt`
 
 ## 資料夾結構
-.
-├── quick_replies/       # Quick Replies 的 Prompt 和函式程式碼        
-├── refine_description/  # 商品描述優化的 API 程式碼   
-├── refund_process/      # 退貨流程設計
-├── tests/               # 測試代碼
-├── .gitignore         
-├── my_record.md         # 我的開發記錄
-├── README.md          
-├── requirements.txt   
-└── .venv/               # 虛擬環境
+
+```markdown
+JUNIOR-AI-ENGINEER-TEST/
+├── .venv/                         
+├── quick_replies/                   # Quick Replies 模組
+│   ├── quick_replies.py             
+├── refine_description/               # 商品描述優化模組
+│   ├── openai_utils.py               
+│   ├── refine_description.py         
+├── refund_process/                   # 退貨流程模組
+│   ├── database.py                   
+│   ├── gpt_assistant.py              
+│   ├── refund_process.py             
+│   ├── validation.py                 
+├── tests/                            # 測試代碼
+│   ├── results_for_performance.txt   
+│   ├── test_quick_replies_2.py       
+│   ├── test_quick_replies_performance.py
+│   ├── test_quick_replies.py         
+│   ├── test_refine_description.py    
+│   ├── test_refund_process.py        
+├── .env                             
+├── .env.example                     
+├── .gitignore                     
+├── my_record.md                      # 開發記錄
+├── README.md                         # 專案說明文件
+└── requirements.txt                   # 依賴套件列表
+```
+
 
 -----
